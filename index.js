@@ -42,9 +42,7 @@ const reini = RegExp('([а-яa-z])');
 	
 	return res.json({
 		fio:output,
-		full:full,
-		fuller:fuller,
-		words:words,
+		
 	});
 
 });
