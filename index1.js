@@ -4,13 +4,19 @@ const app = express();
 
 app.get('/', async(req,res) => {
 	
-const re=RegExp('@?(https?:)?(\/\/)?((vk|telegram|twitter)[^\/]*\/)?([a-zA-Z0-9]*)','i');
+const re=RegExp('@?(https?:)(\/\/)?((vk|telegram|twitter)[^\/]*\/)?([a-zA-Z0-9]*)','i');
 
 	var uname = req.query.username;
-	var output = '@'+uname.match(re)[5];
+	var output = '';
+	if(re.test(uname)){
+		output = '@'+uname.match(re)[5];
+	}else{
+	
+		output = 'Invalid username';
+	}
 	return res.json({
 		fio:output,
-		
+	
 	});
 
 });
